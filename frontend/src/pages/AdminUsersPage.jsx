@@ -13,13 +13,13 @@ export default function AdminUsersPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/track/admin/users")
+    axios.get("https://back-one-navy.vercel.app/track/admin/users")
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Error fetching users:", error));
   };
 
   const fetchTrackings = () => {
-    axios.get("http://localhost:5000/track/admin/trackings")
+    axios.get("https://back-one-navy.vercel.app/track/admin/trackings")
       .then((response) => setTrackingData(response.data))
       .catch((error) => console.error("Error fetching tracking data:", error));
   };
@@ -28,7 +28,7 @@ export default function AdminUsersPage() {
   const handleDeleteUser = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user? This will remove all their data.")) {
       try {
-        await axios.delete(`http://localhost:5000/track/admin/users/${userId}`);
+        await axios.delete(`https://back-one-navy.vercel.app/track/admin/users/${userId}`);
         setUsers(users.filter(user => user._id !== userId));
         setTrackingData(trackingData.filter(track => track.user !== userId));
       } catch (error) {
@@ -41,7 +41,7 @@ export default function AdminUsersPage() {
   const handleDeleteTracking = async (trackingId) => {
     if (window.confirm("Are you sure you want to delete this tracking record?")) {
       try {
-        await axios.delete(`http://localhost:5000/track/admin/trackings/${trackingId}`);
+        await axios.delete(`https://back-one-navy.vercel.app/track/admin/trackings/${trackingId}`);
         setTrackingData(trackingData.filter(track => track._id !== trackingId));
       } catch (error) {
         console.error("Error deleting tracking record:", error);
