@@ -44,7 +44,7 @@ export default function Track() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/track/api/tracking/${trackingNumber}`
+        `https://back-one-navy.vercel.app/track/api/tracking/${trackingNumber}`
       );
 
       if (response.status !== 200) {
