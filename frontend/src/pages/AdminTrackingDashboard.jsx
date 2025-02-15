@@ -14,7 +14,7 @@ const AdminTrackingDashboard = () => {
 
   // Fetch all trackings
   useEffect(() => {
-    axios.get("http://localhost:5000/track/api/admin/trackings")
+    axios.get("https://back-one-navy.vercel.app/track/api/admin/trackings")
       .then((response) => setTrackings(response.data))
       .catch((error) => console.error("Error fetching trackings:", error));
   }, []);
@@ -38,7 +38,7 @@ const AdminTrackingDashboard = () => {
 
   // Handle Save Button Click
   const handleSave = async () => {
-    await axios.put(`http://localhost:5000/track/api/admin/tracking/${editingTracking}`, formData);
+    await axios.put(`https://back-one-navy.vercel.app/track/api/admin/tracking/${editingTracking}`, formData);
     alert("Tracking updated!");
     setEditingTracking(null);
     window.location.reload(); // Refresh after update
