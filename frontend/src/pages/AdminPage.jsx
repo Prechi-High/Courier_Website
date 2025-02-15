@@ -38,7 +38,7 @@ export default function AdminPage() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/track/api/tracking", {
+      const response = await fetch("https://back-one-navy.vercel.app/track/api/tracking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
