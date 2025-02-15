@@ -32,7 +32,7 @@ export default function Login() {
       localStorage.setItem("isAdmin", data.isAdmin); 
   
       if (data.isAdmin) {
-        navigate("/admin");  // ✅ Redirect Admin to Admin Page
+        navigate("/admin");  // ✅ Redirect Admin to Admin Pages
       } else {
         navigate("/track");  // ✅ Redirect Normal User to Tracking Page
       }
