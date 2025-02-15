@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://courier-website-backend.vercel.app/server.js/auth/login", {
+      const response = await fetch("https://back-one-navy.vercel.app/auth/login", {
 
         method: "POST",
         headers: {
