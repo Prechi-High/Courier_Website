@@ -11,10 +11,7 @@ export default function Signup() {
     e.preventDefault();
   
     try {
-      const response = await axios.post("https://back-one-navy.vercel.app/auth/signup", {userName, email, password }, data, {
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors', // Disable CORS (but limits the response)
-      });
+      const response = await axios.post("https://back-one-navy.vercel.app/auth/signup", {userName, email, password });
       alert("User registered successfully!");
 
       console.log("Response:", response.data);
