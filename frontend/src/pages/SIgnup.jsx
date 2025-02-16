@@ -15,12 +15,12 @@ export default function Signup() {
     try {
       setLoading(true)
       const response = await axios.post("https://back-one-navy.vercel.app/auth/signup", {userName, email, password });
-      setLoading(false)
+      
       alert("User registered successfully!");
 
-      if(response.ok){
+     
         navigate("/login");  // ✅ Redirect  User to login Page
-      }
+      
       console.log("Response:", response.data);
     } catch (error) {
       setLoading(false)
