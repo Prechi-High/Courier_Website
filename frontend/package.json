@@ -30,5 +30,6 @@
     "globals": "^15.14.0",
     "rollup": "^4.34.6",
     "vite": "^6.0.5"
-  }
+  },
+  "proxy": "https://back-one-navy.vercel.app"
 }
