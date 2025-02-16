@@ -6,16 +6,24 @@ export default function Signup() {
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
   
     try {
+      setLoading(true)
       const response = await axios.post("https://back-one-navy.vercel.app/auth/signup", {userName, email, password });
+      setLoading(false)
       alert("User registered successfully!");
 
+      if(response.ok){
+        navigate("/login");  // ✅ Redirect  User to login Page
+      }
       console.log("Response:", response.data);
     } catch (error) {
+      setLoading(false)
       console.error("Signup Error:", error);
       alert(error.response?.data?.message || "An error occurred. Check console for details.");
     }
@@ -32,7 +40,7 @@ export default function Signup() {
       <input type="userName" onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="input" /><br/>
       <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="input"/><br/>
       <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="input" /><br/>
-      <button type="submit" className="subbtn">Sign Up</button>
+      <button type="submit" className="subbtn">{loading? 'Submitting...' :'Sign up'}</button>
 
       <div className="auth-links">
            <p>have an account? <Link to="/login" className="but"> Login</Link> instead</p>

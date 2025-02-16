@@ -6,12 +6,14 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
+      setLoading(true)
       const response = await fetch("https://back-one-navy.vercel.app/auth/login", {
 
         method: "POST",
@@ -24,6 +26,7 @@ export default function Login() {
       const data = await response.json();
   
       if (!response.ok) {
+        setLoading(false)
         throw new Error(data.message || "Login failed"); 
       }
   
@@ -64,7 +67,7 @@ export default function Login() {
   autoComplete="current-password"  // ✅ Fixes Warning
 /><br/>
 
-        <button type="submit" className="subbtn">Login</button>
+        <button type="submit" className="subbtn">{loading? 'Login...' : 'Login'}</button>
         <div className="auth-links">
            <p>New to Trackify <Link to="/signup" className="but"> Sign up</Link> instead</p>
         </div>
