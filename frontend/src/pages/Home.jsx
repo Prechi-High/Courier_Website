@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   // Function to handle image loading with blur effect
+  //vercel.json rewrites avoid 404 on refresh
   useEffect(() => {
     const blurDivs = document.querySelectorAll(".blur-load");
     blurDivs.forEach((div) => {

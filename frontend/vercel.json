@@ -1,5 +1,5 @@
 
-{   "_comment": "this stops the 404 error after page refresh",
+{  
     "rewrites": [
       { "source": "/:path*", "destination": "/index.html" } 
     ],
