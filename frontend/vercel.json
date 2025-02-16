@@ -1,5 +1,5 @@
 
-{   "proxy": "https://back-one-navy.vercel.app",
+{   
     "rewrites": [
       { "source": "/:path*", "destination": "/index.html" } 
     ]
