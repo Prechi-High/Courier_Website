@@ -5,9 +5,9 @@ import axios from "axios";
 export default function AdminUsersPage() {
   const [users, setUsers] = useState([]);
   const [trackingData, setTrackingData] = useState([]);
-  const [loading, setLoading] = useState(false)
+ 
   const navigate = useNavigate();
-  
+  // "proxy": "https://back-one-navy.vercel.app",
 
   useEffect(() => {
     fetchUsers();
@@ -30,7 +30,7 @@ export default function AdminUsersPage() {
   const handleDeleteUser = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user? This will remove all their data.")) {
       try {
-        setLoading(true)
+     
         await axios.delete(`https://back-one-navy.vercel.app/track/admin/users/${userId}`);
         setUsers(users.filter(user => user._id !== userId));
         setTrackingData(trackingData.filter(track => track.user !== userId));
@@ -44,7 +44,7 @@ export default function AdminUsersPage() {
   const handleDeleteTracking = async (trackingId) => {
     if (window.confirm("Are you sure you want to delete this tracking record?")) {
       try {
-        setLoading(true)
+        
         await axios.delete(`https://back-one-navy.vercel.app/track/admin/trackings/${trackingId}`);
         setTrackingData(trackingData.filter(track => track._id !== trackingId));
       } catch (error) {
@@ -78,7 +78,7 @@ export default function AdminUsersPage() {
               <td>{user.email}</td>
               <td>
                 <button onClick={() => handleDeleteUser(user._id)}  className="adminbtn">
-                 {loading? 'Deleting user...' : 'Delete user'}
+                 Delete user
                 </button>
               </td>
             </tr>
@@ -110,7 +110,7 @@ export default function AdminUsersPage() {
                 <td>{track.destination || "N/A"}</td>
                 <td>
                   <button onClick={() => handleDeleteTracking(track._id)} style={{ color: "red" }}>
-                  {loading? 'Deleting Tracking...' : 'Delete Tracking'}
+                  Delete Tracking
                   </button>
                 </td>
               </tr>
