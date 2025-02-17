@@ -85,7 +85,7 @@ export default function Track() {
             {trackingData && (
               <div className="details">
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <p><b>Starting Point:</b> {trackingData.from}</p>
+                <p>{destinationIcon}<strong>Starting Point:</strong> {trackingData.from}</p>
                 <p>Destination: {trackingData.destination}</p>
                 <p>Current Location: {trackingData.current}</p>
                 <p>Distance Remaining: {trackingData.distanceRemaining}</p>
