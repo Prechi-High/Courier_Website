@@ -220,6 +220,9 @@ h3 {
   .details div p{
     padding:5px
   }
+  .details div{
+    display:flex;
+  }
   .icon{
     width:30px;
     height:30px;
