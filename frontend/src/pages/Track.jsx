@@ -87,7 +87,7 @@ export default function Track() {
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
                 <p><img src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png" className="icon"/><strong>Starting Point:</strong> {trackingData.from}</p>
                 <p><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" className="icon"/>Destination: {trackingData.destination}</p>
-                <p><img src="https://cdn-icons-png.flaticon.com/512/2596/2596007.png" className="icon"/>Current Location: {trackingData.current}</p>
+                <p><img src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png" className="icon"/>Current Location: {trackingData.current}</p>
                 <p>Distance Remaining: {trackingData.distanceRemaining}</p>
 
                 <h2>Live Map</h2>
