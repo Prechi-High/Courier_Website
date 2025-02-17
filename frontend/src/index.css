@@ -215,9 +215,9 @@ h3 {
   .details {
     width: 100%;
     text-align: left;
-    padding-left: 10px;
+    margin-left: 10px;
   }
-  .details p{
+  .details div p{
     padding:5px
   }
   .icon{
