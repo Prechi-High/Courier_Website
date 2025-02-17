@@ -86,13 +86,7 @@ export default function Track() {
               <div >
                 <div className="details">
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <p>  <Marker
-                    position={[
-                      trackingData.destinationLatitude,
-                      trackingData.destinationLongitude,
-                    ]}
-                    icon={destinationIcon}
-                  ></Marker><strong>Starting Point:</strong> {trackingData.from}</p>
+                <p> {icon={truckIcon}}<strong>Starting Point:</strong> {trackingData.from}</p>
                 <p>Destination: {trackingData.destination}</p>
                 <p>Current Location: {trackingData.current}</p>
                 <p>Distance Remaining: {trackingData.distanceRemaining}</p>
