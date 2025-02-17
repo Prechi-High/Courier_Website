@@ -57,7 +57,7 @@ export default function AdminUsersPage() {
     <div className="cover">
     <div className="homepage">
       <div className="content">
-    <div>
+    <div className="Tablebox">
       <h1>Admin - User Management</h1>
       <button onClick={() => navigate("/admin")} className="adminbtn">Back to Dashboard</button>
 
@@ -85,7 +85,8 @@ export default function AdminUsersPage() {
           ))}
         </tbody>
       </table>
-
+</div>
+<div className="Tablebox">
       {/* Tracking Information Table */}
       <h2>Tracking Information</h2>
       <table border="1">
@@ -109,7 +110,7 @@ export default function AdminUsersPage() {
                 <td>{track.current || "N/A"}</td>
                 <td>{track.destination || "N/A"}</td>
                 <td>
-                  <button onClick={() => handleDeleteTracking(track._id)} style={{ color: "red" }}>
+                  <button onClick={() => handleDeleteTracking(track._id)} className="adminbtn">
                   Delete Tracking
                   </button>
                 </td>
