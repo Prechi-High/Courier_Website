@@ -195,6 +195,11 @@ h3 {
   height:auto
 }
 
+
+
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .content {
@@ -207,7 +212,9 @@ h3 {
     flex-direction: column;
     gap: 0.5rem;
   }
-
+  .details {
+    width: 100%;
+  }
   .customer-images span {
     margin: 1rem 0 0 0;
   }
@@ -220,6 +227,11 @@ h3 {
   }
 .Tablebox{
   overflow:auto;
+}
+.Tablebox2{
+  overflow:auto;
+  display:flex;
+  justify-content: center;
 }
   .button,
   .button2 {

@@ -40,7 +40,7 @@ export default function Signup() {
       <input type="userName" onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="input" /><br/>
       <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="input"/><br/>
       <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="input" /><br/>
-      <button type="submit" className="subbtn">{loading? 'Submitting...' : 'Sign ups' }</button>
+      <button type="submit" className="subbtn">{loading? 'Submitting...' : 'Sign up' }</button>
 
       <div className="auth-links">
            <p>have an account? <Link to="/login" className="but"> Login</Link> instead</p>

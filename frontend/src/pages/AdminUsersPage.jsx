@@ -62,7 +62,7 @@ export default function AdminUsersPage() {
 
       {/* User Information Table */}
       <h2>User Information</h2>
-    <div className="Tablebox">
+    <div className="Tablebox2">
 
       <table border="1">
         <thead>

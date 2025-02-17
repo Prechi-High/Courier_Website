@@ -40,6 +40,7 @@ export default function Login() {
         navigate("/track");  // ✅ Redirect Normal User to Tracking Page
       }
     } catch (error) {
+      setLoading(false)
       console.error("Login Error:", error);
       setError(error.message);
     }
