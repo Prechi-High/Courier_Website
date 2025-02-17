@@ -83,13 +83,20 @@ export default function Track() {
             {error && <p style={{ color: "red" }}>{error}</p>}
 
             {trackingData && (
-              <div className="details">
+              <div >
+                <div className="details">
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <p>{destinationIcon}<strong>Starting Point:</strong> {trackingData.from}</p>
+                <p>  <Marker
+                    position={[
+                      trackingData.destinationLatitude,
+                      trackingData.destinationLongitude,
+                    ]}
+                    icon={destinationIcon}
+                  ></Marker><strong>Starting Point:</strong> {trackingData.from}</p>
                 <p>Destination: {trackingData.destination}</p>
                 <p>Current Location: {trackingData.current}</p>
                 <p>Distance Remaining: {trackingData.distanceRemaining}</p>
-
+                </div>
                 <h2>Live Map</h2>
                 <MapContainer
                   center={[trackingData.latitude, trackingData.longitude]}
