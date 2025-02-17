@@ -75,7 +75,7 @@ h3 {
 
 .content h3 {
   font-size: 1.3rem;
-  font-weight: light;
+  
   margin-bottom: 2rem;
   opacity: 0.9;
   animation: slideUp 0.8s ease-out 0.4s forwards;
@@ -198,8 +198,8 @@ h3 {
 /* Responsive Design */
 @media (max-width: 768px) {
   .content {
-    padding: 1.5rem;
-    width: 95%;
+    /* padding: 1.5rem; */
+    width: 100%;
     text-align: center;
   }
 
@@ -218,21 +218,24 @@ h3 {
     align-items: center;
     gap: 0.5rem;
   }
-
+#TableBox{
+  overflow:auto;
+ 
+}
   .button,
   .button2 {
     width: 100%;
-    padding:3% 6%;
+    padding:4.5% 4%;
     max-width: 280px;
     text-align: center;
   }
 
   .content h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 200%;
   }
 
   .content h3 {
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: 130%;
   }
 }
 

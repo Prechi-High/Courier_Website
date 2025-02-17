@@ -45,7 +45,7 @@ const AdminTrackingDashboard = () => {
   };
 
   return (
-    <div>
+    <div className="Tablebox">
       
       <p style={{fontSize:30}}>Product Tracking</p>
       <table border="1">
