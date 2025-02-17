@@ -85,10 +85,10 @@ export default function Track() {
             {trackingData && (
               <div className="details">
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <div><img src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png" className="icon"/><p><strong>Starting Point:</strong> {trackingData.from}</p></div>
+                <div><img src="https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png" className="icon"/><h5><strong>Starting Point:</strong> {trackingData.from}</h5></div>
                 <div><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" className="icon"/><h5><strong>Destination:</strong> {trackingData.destination}</h5></div>
-                <div><img src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png" className="icon"/><p><strong>Current Location:</strong> {trackingData.current}</p></div>
-                <div>Distance Remaining: {trackingData.distanceRemaining}</div>
+                <div><img src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png" className="icon"/><h5><strong>Current Location:</strong> {trackingData.current}</h5></div>
+                <div><img src="https://cdn3.iconfinder.com/data/icons/camping-flat-colorful/614/2702_-_Distance-1024.png"  className="icon"/><h5>Distance Remaining: {trackingData.distanceRemaining}</h5></div>
 
                 <h2>Live Map</h2>
                 <MapContainer
