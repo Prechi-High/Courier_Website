@@ -57,12 +57,13 @@ export default function AdminUsersPage() {
     <div className="cover">
     <div className="homepage">
       <div className="content">
-    <div className="Tablebox">
       <h1>Admin - User Management</h1>
       <button onClick={() => navigate("/admin")} className="adminbtn">Back to Dashboard</button>
 
       {/* User Information Table */}
       <h2>User Information</h2>
+    <div className="Tablebox">
+
       <table border="1">
         <thead>
           <tr>
@@ -86,9 +87,10 @@ export default function AdminUsersPage() {
         </tbody>
       </table>
 </div>
-<div className="Tablebox">
       {/* Tracking Information Table */}
       <h2>Tracking Information</h2>
+<div className="Tablebox">
+
       <table border="1">
         <thead>
           <tr>
