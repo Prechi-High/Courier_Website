@@ -86,7 +86,7 @@ export default function Track() {
               <div >
                 <div className="details">
                 <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <p> {icon={truckIcon}}<strong>Starting Point:</strong> {trackingData.from}</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/2596/2596007.png"/><strong>Starting Point:</strong> {trackingData.from}</p>
                 <p>Destination: {trackingData.destination}</p>
                 <p>Current Location: {trackingData.current}</p>
                 <p>Distance Remaining: {trackingData.distanceRemaining}</p>
