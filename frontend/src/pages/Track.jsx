@@ -64,6 +64,12 @@ export default function Track() {
   };
 
   return (
+    <div>
+
+<div className="nav">
+    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
+    <div> <Link to="/login" className="button2">Track</Link></div>
+  </div>
     <div className="cover">
       <div className="homepage">
         <div className="content">
@@ -193,97 +199,12 @@ export default function Track() {
                   </div>
                 </section>
               </div>
-
-              //           // <div className="flex-1 relative"> here
-
-              //               <MapContainer
-              //                 center={[trackingData.currentLatitude, trackingData.currentLongitude]}
-              //                 zoom={13}
-              //                 className="h-full rounded-2xl"
-              //               >
-              //                 <TileLayer
-              //                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              //                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              //                 />
-              //                 <Marker position={[trackingData.latitude, trackingData.longitude]}>
-              //                   <Popup>{trackingData.from}</Popup>
-              //                 </Marker>
-              //                 <Marker
-              //                   position={[trackingData.currentLatitude, trackingData.currentLongitude]}
-              //                   icon={truckIcon}
-              //                 >
-              //                   <Popup>{trackingData.current}</Popup>
-              //                 </Marker>
-              //                 <Marker
-              //                   position={[trackingData.destinationLatitude, trackingData.destinationLongitude]}
-              //                   icon={destinationIcon}
-              //                 >
-              //                   <Popup>{trackingData.destination}</Popup>
-              //                 </Marker>
-              //                 <Polyline
-              //                   positions={[
-              //                     [trackingData.latitude, trackingData.longitude],
-              //                     [trackingData.currentLatitude, trackingData.currentLongitude],
-              //                     [trackingData.destinationLatitude, trackingData.destinationLongitude],
-              //                   ]}
-              //                   color="#1a4bff"
-              //                   weight={3}
-              //                 />
-              //               </MapContainer>
-
-              //  {/* Shipment List */}
-              //  <div className="absolute space-y-4 bottom-4 right-4 bg-white p-4 rounded-xl shadow-lg">
-              //                 <div className="p-4 border border-[#1a4bff] rounded-xl bg-blue-50">
-              //                   <div className="flex justify-between items-center mb-2">
-              //                     <div>
-              //                       <div className="font-medium">{trackingData.from} → {trackingData.destination}</div>
-              //                       <div className="text-sm text-gray-500"></div>
-
-              //                     </div>
-              //                     <span className="px-3 py-1 bg-orange-100 text-orange-600 text-sm rounded-full">On The Way</span>
-              //                   </div>
-              //                   <div className="bg-white p-4 rounded-lg space-y-3">
-              //                     <div className="flex items-center gap-3">
-              //                       {/* <img
-              //                         src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=48&h=48&fit=crop"
-              //                         alt="Profile"
-              //                         className="w-10 h-10 rounded-full"
-              //                       />
-              //                       <div> */}
-              //                         <div className="font-medium">Courier :{trackingData.courier}</div>
-              //                         <div className="text-sm text-gray-500">Tracking Id: {trackingData.trackingNumber}</div>
-              //                       </div>
-              //                     </div>
-              //                     <div className="space-y-2">
-              //                       <div className="flex items-center gap-2">
-              //                         <div >From:</div>
-              //                         <div className="text-sm">{trackingData.from}</div>
-              //                       </div>
-              //                       <div className="flex items-center gap-2">
-              //                         <div >To:</div>
-              //                         <div className="text-sm">{trackingData.destination}</div>
-              //                       </div>
-
-              //                       <div className="flex items-center gap-2">
-              //                         <div >Current Location:</div>
-              //                         <div className="text-sm">{trackingData.current}</div>
-              //                       </div>
-
-              //                       <div className="flex items-center gap-2">
-              //                         <div >Miles Left:</div>
-              //                         <div className="text-sm">{trackingData.distanceRemaining}</div>
-              //                       </div>
-              //                     </div>
-
-              //                   </div>
-              //                 </div>
-              //               </div>
             )}
           </div>
         </div>
       </div>
       <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div>
     </div>
-    
+    </div>
   );
 }
