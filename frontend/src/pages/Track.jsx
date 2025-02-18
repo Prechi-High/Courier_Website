@@ -282,6 +282,8 @@ export default function Track() {
           </div>
         </div>
       </div>
+      <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div>
     </div>
+    
   );
 }
