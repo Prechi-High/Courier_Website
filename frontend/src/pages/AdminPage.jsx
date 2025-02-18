@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AdminTrackingDashboard from "./AdminTrackingDashboard";
 
 export default function AdminPage() {
@@ -65,10 +65,10 @@ export default function AdminPage() {
 
   return (
     <div>
-    {/* <div className="nav">
+    <div className="nav">
     <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
     <div> <Link to="/login" className="button2">Track</Link></div>
-  </div> */}
+  </div> 
     <div className="cover">
     <div className="homepage">
       <div className="content">
@@ -171,7 +171,7 @@ export default function AdminPage() {
     </div>
     </div>
     </div>
-    {/* <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div> */}
+     <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div> 
     </div>
   );
 }
