@@ -5,6 +5,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  color: rgb(19, 14, 14);
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,7 +21,7 @@ body {
   /* z-index: 1; */
   padding: 0rem;
   border-radius: 0;
-  color: rgb(255, 255, 255);
+  color: rgb(19, 14, 14);
   width: 100%;
   /* max-width: 1200px; */
   margin: 0 0;
@@ -30,8 +31,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  background-attachment: fixed;
   height:max-content;
   min-height: 100vh;
 }
@@ -86,7 +85,7 @@ h3 {
 
 .track-info {
   font-size: 1.1rem;
-  color: #f1f1f1;
+  color: rgb(19, 14, 14);
   margin-bottom: 1rem;
   animation: slideUp 0.8s ease-out 0.5s forwards;
   opacity: 0;
@@ -102,7 +101,7 @@ h3 {
 }
 
 .button {
-  background-color: #b54fe0;
+  background-color: #e0aa06;
   cursor: pointer;
   color: white;
   border: none;
@@ -121,8 +120,8 @@ h3 {
 .button2 {
   background-color: transparent;
   cursor: pointer;
-  color: #b54fe0;
-  border: 2px solid #b54fe0;
+  color: #e0aa06;
+  border: 2px solid #e0aa06;
   padding: 2% 7%;
   margin: 0.5rem;
   text-decoration: none;
@@ -136,12 +135,12 @@ h3 {
 }
 
 .button:hover {
-  background-color: #642a7c;
+  background-color: #d8a407;
   transform: translateY(-2px);
 }
 
 .button2:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color:#d8a4072f;
   transform: translateY(-2px);
 }
 
@@ -177,27 +176,53 @@ h3 {
 .customer-images span {
   font-size: 1rem;
   font-weight: 500;
-  background: rgba(0, 0, 0, 0.8);
+  background:#351c15;
   padding: 0.75rem 1.5rem;
+  color:#e0aa06;
   border-radius: 50px;
   margin-left: 1rem;
   backdrop-filter: blur(5px);
 }
-
+.footer{
+  background:#351c15;
+  color:#eee;
+  padding:1.2em;
+}
 .cover {
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://shipnerdnews.com/wp-content/uploads/2023/05/port-operations-container-transport.jpg");
   background-size: cover;
   background-attachment: fixed;
-  background-repeat: no-repeat;
- 
+  background-repeat: no-repeat; */
+  
   height:auto
 }
-
-
-
-
+.details div{
+  display:flex;
+}
+.icon{
+  width:30px;
+  height:30px;
+  padding-top:10px
+}
+.nav{
+  display: flex;
+  justify-content:space-around ;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  padding:10px;
+  z-index:1000;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+.Heroimage{
+  width:100%
+}
+.Heroimage img{
+  width:100%
+}
 
 
 /* Responsive Design */
@@ -287,7 +312,7 @@ h3 {
 .subbtn {
   padding: 1em 7em;
   margin-top: 10px;
-  background-color: #b54fe0;
+  background-color: #e0aa06;
   border: none;
   border-radius: 5px;
   color: white;
@@ -296,15 +321,15 @@ h3 {
 }
 
 .subbtn:hover {
-  background-color: #642a7c;
+  background-color: #d6a204;
   border: none;
   border-radius: 0px;
 }
 .adminbtn:hover {
-  background-color: #642a7c;
+  background-color: #d6a204;
 }
 .adminbtn {
-  background-color: #b54fe0;
+  background-color: #e0aa06;
   color: white;
   border: none;
   border-radius: 5px;
@@ -312,7 +337,7 @@ h3 {
   cursor: pointer;
 }
 .but {
-  color: #b54fe0;
+  color: #e0aa06;
   text-decoration: none;
 }
 .homepage {

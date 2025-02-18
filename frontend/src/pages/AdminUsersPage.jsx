@@ -54,6 +54,11 @@ export default function AdminUsersPage() {
   };
 
   return (
+    <div>
+    <div className="nav">
+    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
+    <div> <Link to="/login" className="button2">Track</Link></div>
+  </div>
     <div className="cover">
     <div className="homepage">
       <div className="content">
@@ -125,6 +130,7 @@ export default function AdminUsersPage() {
           )}
         </tbody>
       </table>
+    </div>
     </div>
     </div>
     </div>

@@ -30,7 +30,11 @@ export default function Signup() {
   };
   return (
    
-
+<div>
+    <div className="nav">
+    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
+    <div> <Link to="/login" className="button2">Track</Link></div>
+  </div>
 
 <div className="cover">
 <div className="homepage">
@@ -51,6 +55,6 @@ export default function Signup() {
   </div>
 </div>
 </div>
-
+</div>
   );
 }

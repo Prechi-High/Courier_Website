@@ -50,7 +50,11 @@ export default function Login() {
   
   
   return (
-  
+    <div>
+    <div className="nav">
+    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
+    <div> <Link to="/login" className="button2">Track</Link></div>
+  </div>
 
 <div className="cover">
 <div className="homepage">
@@ -78,6 +82,7 @@ export default function Login() {
 
     
   </div>
+</div>
 </div>
 </div>
   );
