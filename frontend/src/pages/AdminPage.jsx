@@ -90,6 +90,7 @@ export default function AdminPage() {
 
           {/* Tracking Form - Only shown when "Create Tracker" is clicked */}
           {showTrackerForm && (
+          <div className="trackform">
             <div>
               <h2>Add Tracking Information</h2>
               <form onSubmit={handleSubmit}>
@@ -158,6 +159,7 @@ export default function AdminPage() {
               </form>
 
               {message && <p>{message}</p>}
+            </div>
             </div>
           )}
 

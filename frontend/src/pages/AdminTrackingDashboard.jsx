@@ -47,10 +47,10 @@ const AdminTrackingDashboard = () => {
 
   return (
     <div>
-    <div className="nav">
+    {/* <div className="nav">
     <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
     <div> <Link to="/login" className="button2">Track</Link></div>
-  </div>
+  </div> */}
       <div>
       <p style={{fontSize:30}}>Product Tracking</p>
       <div className="Tablebox">
@@ -95,7 +95,7 @@ const AdminTrackingDashboard = () => {
       </table>
     </div>
     </div>
-    <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div>
+    {/* <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div> */}
     </div>
   );
 }

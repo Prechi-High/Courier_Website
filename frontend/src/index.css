@@ -183,6 +183,14 @@ h3 {
   margin-left: 1rem;
   backdrop-filter: blur(5px);
 }
+.trackform{
+  display:flex;
+  justify-content: center;
+}
+.trackform div{
+  align-items:start;
+  text-align: start;
+}
 .footer{
   background:#351c15;
   color:#eee;
