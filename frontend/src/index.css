@@ -90,6 +90,9 @@ h3 {
   justify-content: center;
   gap: 1rem;
 }
+#map{
+  height:400px;
+}
 
 .button {
   background-color: #e0aa06;

@@ -11,6 +11,62 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import L from "leaflet";
 
+
+
+
+
+
+const map = L.map('map'); 
+// Initializes map
+
+map.setView([51.505, -0.09], 13); 
+// Sets initial coordinates and zoom level
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map); 
+// Sets map data source and associates with map
+
+let marker, circle, zoomed;
+
+navigator.geolocation.watchPosition(success, error);
+
+function success(pos) {
+
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+
+    if (marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+    }
+    // Removes any existing marker and circule (new ones about to be set)
+
+    marker = L.marker([lat, lng]).addTo(map);
+    circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+    // Adds marker to the map and a circle for accuracy
+
+    if (!zoomed) {
+        zoomed = map.fitBounds(circle.getBounds()); 
+    }
+    // Set zoom to boundaries of accuracy circle
+
+    map.setView([lat, lng]);
+    // Set map focus to current user position
+
+}
+
+function error(err) {
+
+    if (err.code === 1) {
+        alert("Please allow geolocation access");
+    } else {
+        alert("Cannot get current location");
+    }
+
+}
 // Fix marker icon issue for Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -74,6 +130,7 @@ export default function Track() {
   </div>
       <div className="homepage">
         <div className="content">
+          <div id="map"></div>
           <div>
             <h1>Track Your Package</h1>
             <input
@@ -91,6 +148,7 @@ export default function Track() {
 
             {trackingData && (
               <div className="details">
+                
                 <div className="detailMain">
                   <div>
                 <h4 className="Tcour">Courier: {trackingData.courier}</h4>
@@ -194,6 +252,76 @@ export default function Track() {
                     weight={4}
                   />
                 </MapContainer>
+
+
+                <MapContainer
+  center={[trackingData.latitude, trackingData.longitude]}
+  zoom={4}
+  style={{ height: "400px", width: "100%" }}
+>
+  {/* Hybrid TileLayer (Esri World Imagery) */}
+  <TileLayer
+    url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+    attribution='&copy; <a href="https://www.esri.com">Esri</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  />
+
+  {/* Start Location Marker */}
+  <Marker position={[trackingData.latitude, trackingData.longitude]}>
+    <Popup>
+      <strong>Start location</strong>
+      <br />
+      Name: {trackingData.from}
+      <br />
+      Latitude: {trackingData.latitude}
+      <br />
+      Longitude: {trackingData.longitude}
+    </Popup>
+  </Marker>
+
+  {/* Current Location Marker (Navy Blue Truck) */}
+  <Marker
+    position={[trackingData.currentLatitude, trackingData.currentLongitude]}
+    icon={truckIcon}
+  >
+    <Popup>
+      <strong>Current Location</strong>
+      <br />
+      Name: {trackingData.current}
+      <br />
+      Latitude: {trackingData.currentLatitude}
+      <br />
+      Longitude: {trackingData.currentLongitude}
+    </Popup>
+  </Marker>
+
+  {/* Destination Location Marker (Red Pin) */}
+  <Marker
+    position={[trackingData.destinationLatitude, trackingData.destinationLongitude]}
+    icon={destinationIcon}
+  >
+    <Popup>
+      <strong>Destination</strong>
+      <br />
+      Name: {trackingData.destination}
+      <br />
+      Latitude: {trackingData.destinationLatitude}
+      <br />
+      Longitude: {trackingData.destinationLongitude}
+    </Popup>
+  </Marker>
+
+  {/* Route Line (Polyline) */}
+  <Polyline
+    positions={[
+      [trackingData.latitude, trackingData.longitude], // Start
+      [trackingData.currentLatitude, trackingData.currentLongitude], // Current
+      [trackingData.destinationLatitude, trackingData.destinationLongitude], // Destination
+    ]}
+    color="blue"
+    weight={4}
+  />
+</MapContainer>
+
 
               </div>
             )}
