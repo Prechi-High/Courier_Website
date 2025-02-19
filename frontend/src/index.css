@@ -97,23 +97,7 @@ h3 {
   color: white;
   border: none;
   padding: 1% 7%;
-  margin: 0.5rem;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 4px;
-  display: inline-block;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.buttonb {
-  background-color: #e0aa06;
-  cursor: pointer;
-  color: white;
-  border: none;
-  padding: 1% 7%;
-  margin: 0.6rem;
+  margin: 0.8rem;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;

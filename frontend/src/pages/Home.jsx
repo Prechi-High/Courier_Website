@@ -41,7 +41,7 @@ export default function Home() {
           <p className="track-info">Login or create an account to track package</p>
           <div className="auth-links">
             <Link to="/signup" className="button2">Create Account</Link>
-            <Link to="/login" className="buttonb">Login</Link>
+            <Link to="/login" className="button">Login</Link>
           </div>
           </div>
          
