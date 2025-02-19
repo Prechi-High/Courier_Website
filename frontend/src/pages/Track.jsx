@@ -180,25 +180,34 @@ export default function Track() {
                 </MapContainer>
 
                 <section className="success-stories">
-                  <div className="customer-images">
-                    <img
-                      src="customer1.jpg"
-                      alt="Customer 1"
-                      className="customer-image"
-                    />
-                    <img
-                      src="customer2.jpg"
-                      alt="Customer 2"
-                      className="customer-image"
-                    />
-                    <img
-                      src="customer3.jpg"
-                      alt="Customer 3"
-                      className="customer-image"
-                    />
-                    <span>Over 2000+ Successful Shippings</span>
-                  </div>
-                </section>
+            <div className="customer-images">
+              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image1.jpg')" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=48&h=48&q=80"
+                  alt="Customer 1"
+                  className="customer-image"
+                  loading="lazy"
+                />
+              </div>
+              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image2.jpg')" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=48&h=48&q=80"
+                  alt="Customer 2"
+                  className="customer-image"
+                  loading="lazy"
+                />
+              </div>
+              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image3.jpg')" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=48&h=48&q=80"
+                  alt="Customer 3"
+                  className="customer-image"
+                  loading="lazy"
+                />
+              </div>
+              <span>Over 2000+ Successful Shippings</span>
+            </div>
+          </section>
               </div>
             )}
           </div>
