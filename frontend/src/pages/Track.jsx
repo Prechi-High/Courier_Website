@@ -91,12 +91,28 @@ export default function Track() {
 
             {trackingData && (
               <div className="details">
-                <h2>Tracking Number: {trackingData.trackingNumber}</h2>
-                <div><img src="https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png" className="icon"/><h5><strong>Starting Point:</strong> {trackingData.from}</h5></div>
-                <div><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" className="icon"/><h5><strong>Destination:</strong> {trackingData.destination}</h5></div>
-                <div><img src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png" className="icon"/><h5><strong>Current Location:</strong> {trackingData.current}</h5></div>
-                <div><img src="https://cdn3.iconfinder.com/data/icons/camping-flat-colorful/614/2702_-_Distance-1024.png"  className="icon"/><h5>Distance Remaining: {trackingData.distanceRemaining}</h5></div>
+                <div className="detailMain">
+                  <div>
+                <h4 className="Tcour">Courier: {trackingData.courier}</h4>
+                <p className="Tnum">Tracking Number: {trackingData.trackingNumber}</p>
 
+                <div className="locationbox"><div className="imgBox"><img src="https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png" className="icon"/></div><span className="locationtext"><h5>Starting Point:</h5> 
+                <p> {trackingData.from}</p></span></div>
+
+                <div className="locationbox"><div className="imgBox"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" className="icon"/></div><span className="locationtext"><h5>Destination:</h5> 
+                <p> {trackingData.destination}</p></span></div>
+
+                <div className="locationbox"><div className="imgBox"><img src="https://cdn3.iconfinder.com/data/icons/camping-flat-colorful/614/2702_-_Distance-1024.png"  className="icon"/></div><span className="locationtext"><h5>Current Location:</h5> 
+                <p> {trackingData.current}</p></span></div>
+
+                 <div className="locationbox"><div className="imgBox"><img src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png" className="icon"/></div><span className="locationtext"><h5>Distance Remaining:</h5> 
+                <p> {trackingData.distanceRemaining}</p></span></div>
+
+
+
+
+             </div>
+             </div>
                 <h2>Live Map</h2>
                 <MapContainer
                   center={[trackingData.latitude, trackingData.longitude]}
@@ -179,35 +195,6 @@ export default function Track() {
                   />
                 </MapContainer>
 
-                <section className="success-stories">
-            <div className="customer-images">
-              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image1.jpg')" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=48&h=48&q=80"
-                  alt="Customer 1"
-                  className="customer-image"
-                  loading="lazy"
-                />
-              </div>
-              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image2.jpg')" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=48&h=48&q=80"
-                  alt="Customer 2"
-                  className="customer-image"
-                  loading="lazy"
-                />
-              </div>
-              <div className="blur-load" style={{ backgroundImage: "url('/path-to-tiny-image3.jpg')" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=48&h=48&q=80"
-                  alt="Customer 3"
-                  className="customer-image"
-                  loading="lazy"
-                />
-              </div>
-              <span>Over 2000+ Successful Shippings</span>
-            </div>
-          </section>
               </div>
             )}
           </div>

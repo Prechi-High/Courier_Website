@@ -1,36 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-body {
-  font-family: "Inter", sans-serif;
-  text-align: center;
+  body {
+   font-family: "Inter", sans-serif;
+  text-align: center; 
   margin: 0;
   padding: 0;
   color: rgb(19, 14, 14);
   background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  box-sizing: border-box;
 }
-.px-3.py-1.bg-orange-100.text-orange-600.text-sm.rounded-full {
-  color: red;
-}
-.details {
-  width: 100%;
-}
+
 .homepage {
-    /* position: relative; */
-  /* z-index: 1; */
-  padding: 0rem;
+  
+  padding: 5em;
   border-radius: 0;
   color: rgb(19, 14, 14);
-  width: 100%;
-  /* max-width: 1200px; */
+  /* width: 100%;
+  max-width: 1200px;  */
   margin: 0 0;
 
   animation: slideUp 0.8s ease-out forwards;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height:max-content;
   min-height: 100vh;
 }
@@ -81,7 +72,7 @@ h3 {
   opacity: 0;
   max-width: 600px;
   line-height: 1.6;
-}
+} */
 
 .track-info {
   font-size: 1.1rem;
@@ -92,7 +83,7 @@ h3 {
 }
 
 .auth-links {
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
   animation: slideUp 0.8s ease-out 0.6s forwards;
   opacity: 0;
   display: flex;
@@ -105,7 +96,7 @@ h3 {
   cursor: pointer;
   color: white;
   border: none;
-  padding: 2% 7%;
+  padding: 1% 7%;
   margin: 0.5rem;
   text-decoration: none;
   font-size: 1.1rem;
@@ -116,13 +107,28 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.buttonb {
+  background-color: #e0aa06;
+  cursor: pointer;
+  color: white;
+  border: none;
+  padding: 1% 7%;
+  margin: 0.6rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
 .button2 {
   background-color: transparent;
   cursor: pointer;
   color: #e0aa06;
   border: 2px solid #e0aa06;
-  padding: 2% 7%;
+  padding: 1% 7%;
   margin: 0.8rem;
   text-decoration: none;
   font-size: 1.1rem;
@@ -194,9 +200,50 @@ h3 {
 .footer{
   background:#351c15;
   color:#eee;
-  padding:1.2em;
+  padding:1.2em 0em;
   font-size:80%;
+  bottom:0px;
+  width:100%;
 }
+.detailMain{
+  display:flex;
+  justify-content: center;
+}
+.detailMain div{
+  align-items:start;
+  text-align: start;
+}
+.detailMain div div{
+  display:flex;
+}
+.Tnum{
+  color:gray;
+  font-size: 15px;
+  line-height: 0;
+}
+.Tcour{
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 0;
+
+}
+.locationbox{
+  display:flex;
+} 
+.locationtext{
+  padding:10px;
+}
+.locationtext p{
+ line-height: 1.3;
+ margin:0;
+ font-size: 80%;
+ color:#332d2c
+}
+.locationtext h5{
+  line-height: 1.3;
+  margin:0;
+  font-size: 100%;
+ }
 .cover {
   width: 100%;
   /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -207,9 +254,7 @@ h3 {
   
   height:auto
 }
-.details div{
-  display:flex;
-}
+
 .icon{
   width:30px;
   height:30px;
@@ -232,7 +277,10 @@ h3 {
 .Heroimage img{
   width:100%
 }
-
+.Hero div h2{
+  font-family: "DomaineText", Georgia, serif;
+  font-weight: lighter;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -249,14 +297,13 @@ h3 {
   .details {
     width: 100%;
     text-align: left;
-    margin-left: 10px;
+    padding:1em;
+    box-sizing: border-box;
   }
   .details div p{
     padding:5px
   }
-  .details div{
-    display:flex;
-  }
+  
   .icon{
     width:30px;
     height:30px;
@@ -352,8 +399,10 @@ h3 {
 .homepage {
   background-attachment: fixed;
 height: auto;
+padding:0px;
+width:100%;
 }
 .cover {height:auto;background-attachment: fixed;}
 
 
-/* track styles */
+

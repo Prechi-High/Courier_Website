@@ -36,12 +36,12 @@ export default function Home() {
         <div className="Hero">
           <div>
           <h1>Delivering Excellence,<br />One Package at a Time</h1>
-          <h3>Your trusted partner in timely and secure deliveries across the nation</h3>
+          <h2>Your trusted partner in timely and secure deliveries across the nation</h2>
           <div className="Heroimage"><img src="https://www.ups.com/us/en/media_1183b394323caf0254f26c093eb934df7a4a8eb89.webp?width=750&format=webply&optimize=medium"/></div>
           <p className="track-info">Login or create an account to track package</p>
           <div className="auth-links">
             <Link to="/signup" className="button2">Create Account</Link>
-            <Link to="/login" className="button">Login</Link>
+            <Link to="/login" className="buttonb">Login</Link>
           </div>
           </div>
          
