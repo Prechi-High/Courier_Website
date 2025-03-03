@@ -47,10 +47,7 @@ const AdminTrackingDashboard = () => {
 
   return (
     <div>
-    {/* <div className="nav">
-    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
-    <div> <Link to="/login" className="button2">Track</Link></div>
-  </div> */}
+  
       <div>
       <p style={{fontSize:30}}>Product Tracking</p>
       <div className="Tablebox">

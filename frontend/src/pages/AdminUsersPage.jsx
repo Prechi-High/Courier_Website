@@ -68,7 +68,7 @@ export default function AdminUsersPage() {
 
       {/* User Information Table */}
       <h2>User Information</h2>
-    <div className="Tablebox2">
+    <div className="Tablebox">
 
       <table border="1">
         <thead>
@@ -100,7 +100,7 @@ export default function AdminUsersPage() {
       <table border="1">
         <thead>
           <tr>
-            <th>Username</th>
+            
             <th>Courier</th>
             <th>Tracking Number</th>
             <th>Current Location</th>
@@ -112,7 +112,7 @@ export default function AdminUsersPage() {
           {trackingData.length > 0 ? (
             trackingData.map((track) => (
               <tr key={track._id}>
-                <td>{track.username}</td>
+                
                 <td>{track.courier || "N/A"}</td>
                 <td>{track.trackingNumber || "N/A"}</td>
                 <td>{track.current || "N/A"}</td>
