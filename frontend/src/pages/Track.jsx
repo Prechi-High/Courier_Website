@@ -4,7 +4,7 @@ import {
   GoogleMap,
   useJsApiLoader,
   Polyline,
-  Marker,
+Marker,
   InfoWindow,
 } from "@react-google-maps/api";
 
@@ -14,11 +14,11 @@ const containerStyle = {
   width: "100%",
   height: "100vh",
 };
-
+const libraries = ["places"];
 export default function Track() {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AlzaSyILKJPibp5C8R1PDWGhposXYlP6sOGkHDy", // Replace with your API key
-    libraries: ["places"],
+    libraries,
   });
 
   const [trackingNumber, setTrackingNumber] = useState("");
@@ -82,7 +82,7 @@ export default function Track() {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <div className="cover">
+      <div className="cover">
       <div className="nav">
         <div>
           <Link to="/">
@@ -101,83 +101,83 @@ export default function Track() {
 
       <div className="homepage">
         <div className="content">
-          <h1>Track Your Package</h1>
-          <input
-            type="text"
-            placeholder="Enter Tracking Number"
-            value={trackingNumber}
+        <h1>Track Your Package</h1>
+        <input
+          type="text"
+          placeholder="Enter Tracking Number"
+          value={trackingNumber}
             className="input"
-            onChange={(e) => setTrackingNumber(e.target.value)}
-          />
+          onChange={(e) => setTrackingNumber(e.target.value)}
+        />
           <button onClick={handleTrack} disabled={loading} className="button">
-            {loading ? "Tracking..." : "Track"}
-          </button>
+          {loading ? "Tracking..." : "Track"}
+        </button>
 
-          {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
-          {trackingData && (
-            <div className="details">
-              <div className="detailMain">
-                <div>
-                  <h4 className="Tcour">Courier: {trackingData.courier}</h4>
-                  <p className="Tnum">
-                    Tracking Number: {trackingData.trackingNumber}
-                  </p>
+        {trackingData && (
+          <div className="details">
+            <div className="detailMain">
+              <div>
+                <h4 className="Tcour">Courier: {trackingData.courier}</h4>
+                <p className="Tnum">
+                  Tracking Number: {trackingData.trackingNumber}
+                </p>
 
-                  <div className="locationbox">
-                    <div className="imgBox">
-                      <img
-                        src="https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png"
-                        className="icon"
-                      />
-                    </div>
-                    <span className="locationtext">
-                      <h5>Starting Point:</h5>
-                      <p> {trackingData.from}</p>
-                    </span>
+                <div className="locationbox">
+                  <div className="imgBox">
+                    <img
+                      src="https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png"
+                      className="icon"
+                    />
                   </div>
+                  <span className="locationtext">
+                    <h5>Starting Point:</h5>
+                    <p> {trackingData.from}</p>
+                  </span>
+                </div>
 
-                  <div className="locationbox">
-                    <div className="imgBox">
-                      <img
-                        src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
-                        className="icon"
-                      />
-                    </div>
-                    <span className="locationtext">
-                      <h5>Destination:</h5>
-                      <p> {trackingData.destination}</p>
-                    </span>
+                <div className="locationbox">
+                  <div className="imgBox">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+                      className="icon"
+                    />
                   </div>
+                  <span className="locationtext">
+                    <h5>Destination:</h5>
+                    <p> {trackingData.destination}</p>
+                  </span>
+                </div>
 
-                  <div className="locationbox">
-                    <div className="imgBox">
-                      <img
-                        src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png"
-                        className="icon"
-                      />
-                    </div>
-                    <span className="locationtext">
-                      <h5>Current Location:</h5>
-                      <p> {trackingData.current}</p>
-                    </span>
+                <div className="locationbox">
+                  <div className="imgBox">
+                    <img
+                      src="https://static.vecteezy.com/system/resources/previews/016/774/636/original/3d-delivery-truck-icon-on-transparent-background-free-png.png"
+                      className="icon"
+                    />
                   </div>
+                  <span className="locationtext">
+                    <h5>Current Location:</h5>
+                    <p> {trackingData.current}</p>
+                  </span>
+                </div>
 
-                  <div className="locationbox">
-                    <div className="imgBox">
-                      <img
-                        src="https://cdn3.iconfinder.com/data/icons/camping-flat-colorful/614/2702_-_Distance-1024.png"
-                        className="icon"
-                      />
-                    </div>
-                    <span className="locationtext">
-                      <h5>Distance Remaining:</h5>
-                      <p> {trackingData.distanceRemaining}</p>
-                    </span>
+                <div className="locationbox">
+                  <div className="imgBox">
+                    <img
+                      src="https://cdn3.iconfinder.com/data/icons/camping-flat-colorful/614/2702_-_Distance-1024.png"
+                      className="icon"
+                    />
                   </div>
+                  <span className="locationtext">
+                    <h5>Distance Remaining:</h5>
+                    <p> {trackingData.distanceRemaining}</p>
+                  </span>
                 </div>
               </div>
-              <h2>Live Map</h2>
+            </div>
+            <h2>Live Map</h2>
 
               <GoogleMap
                 mapContainerStyle={containerStyle}
@@ -191,21 +191,21 @@ export default function Track() {
                 }}
               >
                 {/* ✅ Polyline (Blue) */}
-                {locations.length > 0 && (
-                  <Polyline
-                    path={locations}
-                    options={{
-                      strokeColor: "gold",
-                      strokeOpacity: 0.8,
-                      strokeWeight: 6,
-                    }}
-                  />
-                )}
+              {locations.length > 0 && (
+                <Polyline
+                  path={locations}
+                  options={{
+                    strokeColor: "gold",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 6,
+                  }}
+                />
+              )}
 
                 {/* ✅ Custom Markers */}
-                {locations.map((location, index) => (
-                  <Marker
-                    key={index}
+              {locations.map((location, index) => (
+                <Marker
+                  key={index}
                     position={{
                       lat: Number(location.lat),
                       lng: Number(location.lng),
@@ -214,36 +214,36 @@ export default function Track() {
                       url: location.icon,
                       scaledSize: new window.google.maps.Size(50, 50), // Adjust size as needed
                     }}
-                    onClick={() => setSelectedLocation(location)}
-                  />
-                ))}
+                  onClick={() => setSelectedLocation(location)}
+                />
+              ))}
 
                 {/* ✅ InfoWindow (Popup on Marker Click) */}
-                {selectedLocation && (
-                  <InfoWindow
+              {selectedLocation && (
+                <InfoWindow
                     position={{
                       lat: Number(selectedLocation.lat),
                       lng: Number(selectedLocation.lng),
                     }}
-                    onCloseClick={() => setSelectedLocation(null)}
-                  >
+                  onCloseClick={() => setSelectedLocation(null)}
+                >
                     <div style={{ padding: "5px", fontSize: "14px" }}>
-                      <strong>{selectedLocation.name}</strong>
-                      <br />
+                    <strong>{selectedLocation.name}</strong>
+                    <br />
                       <span>
-                        Lat: {Number(selectedLocation.lat).toFixed(4)}
+                    Lat: {Number(selectedLocation.lat).toFixed(4)}
                       </span>
-                      <br />
+                    <br />
                       <span>
-                        Lng: {Number(selectedLocation.lng).toFixed(4)}
+                    Lng: {Number(selectedLocation.lng).toFixed(4)}
                       </span>
-                    </div>
-                  </InfoWindow>
-                )}
-              </GoogleMap>
-            </div>
-          )}
-        </div>
+                  </div>
+                </InfoWindow>
+              )}
+            </GoogleMap>
+          </div>
+        )}
+      </div>
       </div>
 
       <div className="footer">
