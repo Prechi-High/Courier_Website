@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AdminTrackingDashboard from "./AdminTrackingDashboard";
 import { useJsApiLoader, Autocomplete } from "@react-google-maps/api";
@@ -11,33 +11,28 @@ export default function AdminPage() {
   // State for tracking input
   const [trackingNumber, setTrackingNumber] = useState("");
   const [courier, setCourier] = useState("");
-  const [message, setMessage] = useState("");
 
-  // State for locations and coordinates
-  const [from, setFrom] = useState("");
-  const [fromName, setFromName] = useState("");
-  const [fromCoords, setFromCoords] = useState({ lat: "", lng: "" });
-
-  const [current, setCurrent] = useState("");
-  const [currentName, setCurrentName] = useState("");
-  const [currentCoords, setCurrentCoords] = useState({ lat: "", lng: "" });
-
+  // Location States - Stores formatted address and place names
+  const [from, setFrom] = useState(""); // Full address
+  const [fromName, setFromName] = useState(""); // Location name only
   const [destination, setDestination] = useState("");
   const [destinationName, setDestinationName] = useState("");
-  const [destinationCoords, setDestinationCoords] = useState({ lat: "", lng: "" });
+  const [current, setCurrent] = useState("");
+  const [currentName, setCurrentName] = useState("");
 
-  // Refs for Autocomplete
-  const fromAutocompleteRef = useRef(null);
-  const currentAutocompleteRef = useRef(null);
-  const destinationAutocompleteRef = useRef(null);
+  // State for storing selected locations' lat & long
+  const [fromCoords, setFromCoords] = useState({ lat: "", lng: "" });
+  const [destinationCoords, setDestinationCoords] = useState({ lat: "", lng: "" });
+  const [currentCoords, setCurrentCoords] = useState({ lat: "", lng: "" });
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:"AlzaSy7YFjT8uPnw2iu7IO2CUwr8Ujnr4DGZnhV", // Secure API Key
-    libraries: ["places"],
+    googleMapsApiKey: "YOUR_GOOGLE_MAPS_API_KEY", // Replace with your API Key
+    libraries: ["places"], // Load the 'places' library for Autocomplete
   });
 
   useEffect(() => {
+    // Check if user is an admin; redirect to login if not
     const adminStatus = localStorage.getItem("isAdmin") === "true";
     setIsAdmin(adminStatus);
     if (!adminStatus) navigate("/login");
@@ -47,21 +42,20 @@ export default function AdminPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Prepare tracking data including place names
     const trackingData = {
       trackingNumber,
-      latitude: fromCoords.lat, // Corrected
-      longitude: fromCoords.lng, // Corrected
       courier,
-      currentLatitude: currentCoords.lat,
-      currentLongitude: currentCoords.lng,
-      destinationLatitude: destinationCoords.lat,
-      destinationLongitude: destinationCoords.lng,
-      from: fromName,
-      current: currentName,
-      destination: destinationName,
+      from,
+      fromName,
+      current,
+      currentName,
+      destination,
+      destinationName,
+      latitude: currentCoords.lat, // Use auto-filled latitude
+      longitude: currentCoords.lng, // Use auto-filled longitude
     };
-    console.log("Final Payload:", trackingData);
-    
+
     try {
       const response = await fetch("https://back-one-navy.vercel.app/track/api/tracking", {
         method: "POST",
@@ -74,24 +68,24 @@ export default function AdminPage() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
 
-      setMessage("Tracking information added successfully!");
+      alert("Tracking information added successfully!");
+
+      // Reset form fields
       setTrackingNumber("");
       setCourier("");
       setFrom("");
       setFromName("");
-      setFromCoords({ lat: "", lng: "" });
-
-      setCurrent("");
-      setCurrentName("");
-      setCurrentCoords({ lat: "", lng: "" });
-
       setDestination("");
       setDestinationName("");
+      setCurrent("");
+      setCurrentName("");
+      setFromCoords({ lat: "", lng: "" });
       setDestinationCoords({ lat: "", lng: "" });
+      setCurrentCoords({ lat: "", lng: "" });
 
       setShowTrackerForm(false); // Hide form after submission
     } catch (error) {
-      setMessage(error.message || "Failed to add tracking info.");
+      alert(error.message || "Failed to add tracking info.");
     }
   };
 
@@ -99,19 +93,20 @@ export default function AdminPage() {
     <div>
       {/* Navbar */}
       <div className="nav">
-        <div><Link to="/"><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo" /></Link></div>
+        <div><Link to="/"><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
         <div><Link to="/login" className="button2">Tracks</Link></div>
-      </div>
+      </div> 
 
       <div className="cover">
         <div className="homepage">
           <div className="content">
             <h1>Admin Dashboard</h1>
+            
             {isAdmin ? (
               <div>
                 <p>Welcome, Admin!</p>
 
-                {/* Buttons Row */}
+                {/* Buttons Row - "View Users" and "Create Tracker" */}
                 <div className="auth-links2">
                   <button onClick={() => navigate("/admin/users")} className="button">View Users</button>
                   <button onClick={() => setShowTrackerForm(!showTrackerForm)} className="button2">
@@ -119,12 +114,12 @@ export default function AdminPage() {
                   </button>
                 </div>
 
-                {/* Tracking Form */}
+                {/* Tracking Form - Only shown when "Create Tracker" is clicked */}
                 {showTrackerForm && isLoaded && (
                   <div className="trackform">
-                   
-                    <form onSubmit={handleSubmit}>
                     <h2>Add Tracking Information</h2>
+                    <form onSubmit={handleSubmit}>
+                      
                       {/* Courier Name */}
                       <input
                         type="text"
@@ -132,10 +127,9 @@ export default function AdminPage() {
                         className="input"
                         onChange={(e) => setCourier(e.target.value)}
                         required
-                        placeholder="Enter Courire name..."
-                      /> <br/>
-                    
-
+                      />
+                      <label>Courier Name:</label><br/>
+                      
                       {/* Tracking Number */}
                       <input
                         type="text"
@@ -143,19 +137,17 @@ export default function AdminPage() {
                         className="input"
                         onChange={(e) => setTrackingNumber(e.target.value)}
                         required
-                        placeholder="Enter Tracking Number..."
                       />
-                     
+                      <label>Tracking Number:</label><br/>
 
-                      {/* Start Location */}
-                   
+                      {/* Start Location (Auto-complete) */}
                       <Autocomplete
-                        onLoad={(autocomplete) => (fromAutocompleteRef.current = autocomplete)}
+                        onLoad={(autocomplete) => (this.fromAutocomplete = autocomplete)}
                         onPlaceChanged={() => {
-                          const place = fromAutocompleteRef.current.getPlace();
+                          const place = this.fromAutocomplete.getPlace();
                           if (place.geometry) {
                             setFrom(place.formatted_address);
-                            setFromName(place.name || place.formatted_address.split(",")[0]);
+                            setFromName(place.name || place.formatted_address.split(",")[0]); // Extracts place name
                             setFromCoords({
                               lat: place.geometry.location.lat(),
                               lng: place.geometry.location.lng(),
@@ -163,16 +155,15 @@ export default function AdminPage() {
                           }
                         }}
                       >
-                        <input type="text" className="input" value={from} onChange={(e) => setFrom(e.target.value)}  placeholder="Enter Start location..." required /> 
+                        <input type="text" className="input" value={from} onChange={(e) => setFrom(e.target.value)} required />
                       </Autocomplete>
-                  
-                     
+                      <label>Start Location:</label><br/>
 
-                      {/* Current Location */}
+                      {/* Current Location (Auto-complete) */}
                       <Autocomplete
-                        onLoad={(autocomplete) => (currentAutocompleteRef.current = autocomplete)}
+                        onLoad={(autocomplete) => (this.currentAutocomplete = autocomplete)}
                         onPlaceChanged={() => {
-                          const place = currentAutocompleteRef.current.getPlace();
+                          const place = this.currentAutocomplete.getPlace();
                           if (place.geometry) {
                             setCurrent(place.formatted_address);
                             setCurrentName(place.name || place.formatted_address.split(",")[0]);
@@ -183,57 +174,32 @@ export default function AdminPage() {
                           }
                         }}
                       >
-                        <input type="text" className="input" value={current} onChange={(e) => setCurrent(e.target.value)} required placeholder="Enter Current location..."/>
+                        <input type="text" className="input" value={current} onChange={(e) => setCurrent(e.target.value)} required />
                       </Autocomplete>
-                   
+                      <label>Current Location:</label><br/>
 
-                      
-                     {/* Destination Location Autocomplete */}
-<Autocomplete
-  onLoad={(autocomplete) => (destinationAutocompleteRef.current = autocomplete)}
-  onPlaceChanged={() => {
-    const place = destinationAutocompleteRef.current.getPlace();
-    
-    // Debugging: Log the entire place object
-    console.log("Place Object:", place);
-
-    if (place.geometry) {
-      const formattedAddress = place.formatted_address || "";
-      const placeName = place.name || formattedAddress.split(",")[0];
-      const lat = place.geometry.location.lat();
-      const lng = place.geometry.location.lng();
-
-      setDestination(formattedAddress);
-      setDestinationName(placeName);
-      setDestinationCoords({ lat, lng });
-
-      console.log("Updated Destination Data:", {
-        name: placeName,
-        address: formattedAddress,
-        lat,
-        lng
-      });
-    } else {
-      console.log("No geometry data found for the selected place.");
-    }
-  }}
->
-  <input
-    type="text"
-    className="input"
-    value={destination}
-    onChange={(e) => setDestination(e.target.value)}
-    required
-    placeholder="Enter Destination location..."
-  />
-</Autocomplete>
-
+                      {/* Destination (Auto-complete) */}
+                      <Autocomplete
+                        onLoad={(autocomplete) => (this.destinationAutocomplete = autocomplete)}
+                        onPlaceChanged={() => {
+                          const place = this.destinationAutocomplete.getPlace();
+                          if (place.geometry) {
+                            setDestination(place.formatted_address);
+                            setDestinationName(place.name || place.formatted_address.split(",")[0]);
+                            setDestinationCoords({
+                              lat: place.geometry.location.lat(),
+                              lng: place.geometry.location.lng(),
+                            });
+                          }
+                        }}
+                      >
+                        <input type="text" className="input" value={destination} onChange={(e) => setDestination(e.target.value)} required />
+                      </Autocomplete>
+                      <label>Destination:</label><br/>
 
                       {/* Submit Button */}
                       <button type="submit" className="button">Add Tracking Info</button>
                     </form>
-
-                    {message && <p>{message}</p>}
                   </div>
                 )}
 

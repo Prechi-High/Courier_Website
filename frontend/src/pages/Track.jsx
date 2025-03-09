@@ -17,7 +17,7 @@ const containerStyle = {
 const libraries = ["places"];
 export default function Track() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AlzaSyILKJPibp5C8R1PDWGhposXYlP6sOGkHDy", // Replace with your API key
+    googleMapsApiKey: "AlzaSy7YFjT8uPnw2iu7IO2CUwr8Ujnr4DGZnhV", // Replace with your API key
     libraries,
   });
 
@@ -34,11 +34,13 @@ export default function Track() {
       const response = await axios.get(
         `https://back-one-navy.vercel.app/track/api/tracking/${trackingNumber}`
       );
-
+  
+      console.log("API Response:", response.data); // Log API response
+  
       if (response.status !== 200) {
         throw new Error("Tracking information not found.");
       }
-
+  
       setTrackingData(response.data);
       setError("");
     } catch (err) {
@@ -48,32 +50,34 @@ export default function Track() {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     if (trackingData) {
       setLocations([
         {
           name: `Start: ${trackingData.from}`,
-          lat: Number(trackingData.latitude),
-          lng: Number(trackingData.longitude),
-          icon: "https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png", // Start Icon
+          lat: Number(trackingData.latitude) || 0,  // Prevent NaN errors
+          lng: Number(trackingData.longitude) || 0,
+          icon: "https://www.nicepng.com/png/full/9-94335_location-icon-location-icon-png-blue.png", 
         },
         {
           name: `Current: ${trackingData.current}`,
-          lat: Number(trackingData.currentLatitude),
-          lng: Number(trackingData.currentLongitude),
-          icon: "https://media.tenor.com/9zntDQEnmEkAAAAi/point-of-interest-map.gif", // Current Location Icon
+          lat: Number(trackingData.currentLatitude) || 0, // Prevent NaN
+          lng: Number(trackingData.currentLongitude) || 0,
+          icon: "https://media.tenor.com/9zntDQEnmEkAAAAi/point-of-interest-map.gif",
         },
         {
           name: `Destination: ${trackingData.destination}`,
-          lat: Number(trackingData.destinationLatitude),
-          lng: Number(trackingData.destinationLongitude),
-          icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png", // Destination Icon
+          lat: Number(trackingData.destinationLatitude) || 0, // Prevent NaN
+          lng: Number(trackingData.destinationLongitude) || 0,
+          icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
         },
       ]);
     }
   }, [trackingData]);
-
+  
+  console.log(`TRACK DATA: from: ${trackingData?.latitude}, current: ${trackingData?.currentLatitude}, destination: ${trackingData?.destinationLatitude}`);
   const defaultCenter =
     locations.length > 0
       ? { lat: locations[1].lat, lng: locations[1].lng } // Center map on current location

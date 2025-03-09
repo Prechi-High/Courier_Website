@@ -11,6 +11,15 @@
   -moz-osx-font-smoothing: grayscale; 
   box-sizing: border-box;
 }
+.input-group {
+  display: flex;
+  align-items: center;
+   /* Places label after input */
+  gap: 10px; /* Adjust spacing between input and label */
+  /* margin-bottom: 10px; */
+}
+
+
 .Tablebox{
   overflow:auto;
   display:flex;
@@ -186,7 +195,11 @@ h3 {
 }
 .trackform div{
   align-items:start;
-  text-align: start;
+  text-align: center;
+}
+.trackform h2{
+  align-items:start;
+  text-align: center;
 }
 .footer{
   background:#351c15;
