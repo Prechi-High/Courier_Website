@@ -23,7 +23,7 @@ const AdminTrackingDashboard = () => {
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AlzaSy7YFjT8uPnw2iu7IO2CUwr8Ujnr4DGZnhV", // Replace with your actual API key
+    googleMapsApiKey: "AlzaSycB1plQTkXzVBd7pw5ZkaEnG7IHxWOdyhV", // Replace with your actual API key
     libraries: ["places"],
   });
 
@@ -59,24 +59,29 @@ const AdminTrackingDashboard = () => {
   // Handle saving updated tracking info
   const handleSave = async () => {
     try {
-      await axios.put(
+      console.log("Sending Update Request for:", editingTracking);
+      console.log("Payload:", formData);
+  
+      const response = await axios.put(
         `https://back-one-navy.vercel.app/track/api/admin/tracking/${editingTracking}`,
         formData
       );
+  
+      console.log("Update Response:", response.data);
       alert("Tracking updated!");
-
-      // Fetch updated tracking data to refresh the table
-      const response = await axios.get(
+  
+      // Fetch updated tracking data
+      const updatedResponse = await axios.get(
         "https://back-one-navy.vercel.app/track/api/admin/trackings"
       );
-      setTrackings(response.data);
-
+      setTrackings(updatedResponse.data);
+  
       setEditingTracking(null);
     } catch (error) {
-      console.error("Error updating tracking:", error);
+      console.error("Error updating tracking:", error.response?.data || error);
     }
   };
-
+  
   return (
     <div>
       <p style={{ fontSize: 30 }}>Product Tracking</p>
@@ -95,7 +100,7 @@ const AdminTrackingDashboard = () => {
           </thead>
           <tbody>
             {trackings.map((tracking) => (
-              <tr key={tracking.trackingNumber}>
+              <tr key={tracking.trackingNumber || index}>
                 <td>{tracking.courier}</td>
                 <td>{tracking.trackingNumber}</td>
                 <td>{tracking.from}</td>

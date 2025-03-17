@@ -33,7 +33,7 @@ export default function AdminPage() {
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:"AlzaSy7YFjT8uPnw2iu7IO2CUwr8Ujnr4DGZnhV", // Secure API Key
+    googleMapsApiKey:"AlzaSycB1plQTkXzVBd7pw5ZkaEnG7IHxWOdyhV", // Secure API Key
     libraries: ["places"],
   });
 
@@ -59,6 +59,7 @@ export default function AdminPage() {
       from: fromName,
       current: currentName,
       destination: destinationName,
+      
     };
     console.log("Final Payload:", trackingData);
     

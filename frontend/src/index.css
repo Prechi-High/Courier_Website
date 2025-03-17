@@ -328,12 +328,15 @@ h3 {
   }
 .Tablebox{
   overflow:auto;
+ 
 }
-.Tablebox2{
+
+
+/* .Tablebox2{
   overflow:auto;
   display:flex;
   justify-content: center;
-}
+} */
   .button,
   .button2 {
     width: 100%;

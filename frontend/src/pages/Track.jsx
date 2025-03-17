@@ -17,7 +17,7 @@ const containerStyle = {
 const libraries = ["places"];
 export default function Track() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AlzaSy7YFjT8uPnw2iu7IO2CUwr8Ujnr4DGZnhV", // Replace with your API key
+    googleMapsApiKey: "AlzaSycB1plQTkXzVBd7pw5ZkaEnG7IHxWOdyhV", // Replace with your API key
     libraries,
   });
 
@@ -186,7 +186,7 @@ export default function Track() {
               <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={defaultCenter}
-                zoom={3}
+                zoom={6}
                 options={{
                   mapTypeControl: false, // Disable map type control
                   streetViewControl: false, // Disable the Street View (person icon)
