@@ -23,7 +23,7 @@ const AdminTrackingDashboard = () => {
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AlzaSycB1plQTkXzVBd7pw5ZkaEnG7IHxWOdyhV", // Replace with your actual API key
+    googleMapsApiKey: "AlzaSypbx4MnxFN2NK7q1OrnitgBuhq6H3kFGtV", // Replace with your actual API key
     libraries: ["places"],
   });
 

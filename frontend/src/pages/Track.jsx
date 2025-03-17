@@ -17,7 +17,7 @@ const containerStyle = {
 const libraries = ["places"];
 export default function Track() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AlzaSycB1plQTkXzVBd7pw5ZkaEnG7IHxWOdyhV", // Replace with your API key
+    googleMapsApiKey: "AlzaSypbx4MnxFN2NK7q1OrnitgBuhq6H3kFGtV", // Replace with your API key
     libraries,
   });
 
