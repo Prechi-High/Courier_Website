@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Track from "./pages/Track";
+import Email from "./pages/Email"
 import AdminPage from "./pages/AdminPage";
 import Signup from "./pages/SIgnup";
 import Home from "./pages/Home";
 import AdminTrackingDashboard from "./pages/AdminTrackingDashboard";
 import AdminUsersPage from "./pages/AdminUsersPage";
+
 
 const isAuthenticated = () => localStorage.getItem("token"); 
 const isAdmin = () => localStorage.getItem("isAdmin") === "true";
@@ -24,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/email" element={<EmailSender />} />
         <Route path="/track" element={<Track />} />
         <Route path="/trackDashboard" element={<AdminTrackingDashboard />} />
         <Route path="/admin" element={<AdminPage />} />

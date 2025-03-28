@@ -100,9 +100,11 @@ export default function AdminPage() {
     <div>
       {/* Navbar */}
       <div className="nav">
-        <div><Link to="/"><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo" /></Link></div>
-        <div><Link to="/login" className="button2">Tracks</Link></div>
-      </div>
+        <div className="logobox"><Link to="/"><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo" /></Link>
+        <div className="reciptBox"> <Link to="https://web-project2-eight.vercel.app/" className="button5">Issue Recipt</Link></div></div>
+       <div><Link to="/login" className="button2">Tracks</Link> </div>
+       </div>
+     
 
       <div className="cover">
         <div className="homepage">
