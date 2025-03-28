@@ -4,11 +4,12 @@
 import React, { useState } from "react";
 
 const EmailSender = () => {
+
     const [email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
     const [trackingNumber, setTrackingNumber] = useState("");
-    const [amount, setAmount] = useAmount("");
-    const [dueDate, setDueDate] = useDueDate("");
+    const [amount, setAmount] = useState("");
+    const [dueDate, setDueDate] = useState("");
    
     const [status, setStatus] = useState(null);
 
@@ -32,8 +33,9 @@ const EmailSender = () => {
         <div>
             <h2>Send an Email</h2>
             <input type="email" placeholder="Recipient Email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input type="text" placeholder="Tracking Number" value={trackingNumber} onChange={e => setTrackingNumber(e.target.value)} />
             <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} />
-            <input type="email" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} />
+            <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} />
             <input type="text" placeholder="Due date" value={dueDate} onChange={e => setDueDate(e.target.value)} />
             <button onClick={sendEmail}>Send Email</button>
             {status && <p>{status}</p>}
