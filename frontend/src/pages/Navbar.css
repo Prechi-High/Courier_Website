@@ -80,6 +80,12 @@
     .nav-links li {
       margin: 10px 0;
       padding:10px;
+      border: none;
+    }
+    .nav-links li:hover {
+     border-bottom: none;
+
+  
     }
     .nav-links a {
       color: #351c15;
