@@ -12,7 +12,7 @@ const EmailSender = () => {
     // Function to handle sending email
     const sendEmail = async () => {
         try {
-            const response = await fetch("http://localhost:5000/send-email", {
+            const response = await fetch("https://back-one-navy.vercel.app/email/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ to: email, subject, message })
