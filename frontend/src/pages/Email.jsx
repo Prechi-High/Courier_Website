@@ -2,6 +2,7 @@
 // Install dependencies: npm install react react-dom
 
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const EmailSender = () => {
 
