@@ -1,0 +1,94 @@
+/* General Navbar Styles */
+.navbar {
+     background: #351c15;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .logo {
+    color: #eee;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+    border-bottom: 5px solid #351c15;
+  
+  }
+  .nav-links li:hover {
+   border-bottom: 5px solid #e0aa06;
+   
+   transition: 0.5s;
+
+  }
+  
+  .nav-links a {
+    
+    color: #eee;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+  }
+  
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      background: #eee;
+      width: 100%;
+      z-index: 100;
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+      padding:10px;
+    }
+    .nav-links a {
+      color: #351c15;
+    }
+    .nav-links li:hover{
+      color: #351c15;
+      background:#fff;
+
+    
+    }
+  }
+  

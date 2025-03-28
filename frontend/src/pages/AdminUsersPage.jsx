@@ -7,6 +7,14 @@ export default function AdminUsersPage() {
   const [users, setUsers] = useState([]);
   const [trackingData, setTrackingData] = useState([]);
  
+  // Navbar State
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to toggle navbar menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const navigate = useNavigate();
   // "proxy": "https://back-one-navy.vercel.app",
 
@@ -53,13 +61,33 @@ export default function AdminUsersPage() {
       }
     }
   };
-
+ // Navbar Function
+ const Navbar = () => (
+  <nav className="navbar">
+   
+  
+    <Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link>
+    <div className="nav-container">
+      {/* Hamburger Icon */}
+      <div className="hamburger" onClick={toggleMenu}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
+   
+      {/* Navigation Links */}
+      <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
+        <li><Link to="https://web-project2-eight.vercel.app" onClick={toggleMenu}>ISSUE RECIPT</Link></li>
+        <li><Link to="/email" onClick={toggleMenu}>SEND EMAIL</Link></li>
+        <li><Link to="/login"  onClick={toggleMenu}>TRACK</Link></li>
+        
+      </ul>
+    </div>
+  </nav>
+);
   return (
     <div>
-    <div className="nav">
-    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
-    <div> <Link to="/login" className="button2">Track</Link></div>
-  </div>
+    <Navbar />
     <div className="cover">
     <div className="homepage">
       <div className="content">

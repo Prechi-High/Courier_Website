@@ -4,6 +4,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+
+
+
 const EmailSender = () => {
 
     const [email, setEmail] = useState("");
@@ -15,6 +18,14 @@ const EmailSender = () => {
     const [status, setStatus] = useState(null);
     const [loading, setLoading] = useState(false)
 
+
+    // Navbar State
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+// Function to toggle navbar menu
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
+};
     // Function to handle sending email
     const sendEmail = async () => {
         try {
@@ -32,13 +43,33 @@ const EmailSender = () => {
             setStatus("Error sending email.");
         }
     };
-
+  // Navbar Function
+  const Navbar = () => (
+    <nav className="navbar">
+     
+    
+      <Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link>
+      <div className="nav-container">
+        {/* Hamburger Icon */}
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+     
+        {/* Navigation Links */}
+        <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
+          <li><Link to="https://web-project2-eight.vercel.app" onClick={toggleMenu}>ISSUE RECIPT</Link></li>
+          <li><Link to="/email" onClick={toggleMenu}>SEND EMAIL</Link></li>
+          <li><Link to="/login"  onClick={toggleMenu}>TRACK</Link></li>
+          
+        </ul>
+      </div>
+    </nav>
+  );
     return (
         <div>
-             <div className="nav">
-    <div><Link to="/" ><img src="https://www.ups.com/webassets/icons/logo.svg" className="logo"/></Link></div>
-    <div> <Link to="/login" className="button2">Track</Link></div>
-  </div>
+              <Navbar />
 
   <div className="cover">
 <div className="homepage">
