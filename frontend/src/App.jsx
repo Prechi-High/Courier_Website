@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Track from "./pages/Track";
-import Email from "./pages/Email"
+import <EmailSender></EmailSender> from "./pages/Email"
 import AdminPage from "./pages/AdminPage";
 import Signup from "./pages/SIgnup";
 import Home from "./pages/Home";
